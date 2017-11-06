@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paid amount:</strong>
+  <%= @user_event_detail.paid_amount %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_event_detail.user %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @user_event_detail.event %>
+</p>
+
+<%= link_to 'Edit', edit_user_event_detail_path(@user_event_detail) %> |
+<%= link_to 'Back', user_event_details_path %>

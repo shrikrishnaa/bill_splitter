@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Add New Event ', new_event_path %></br>
+<%= link_to 'Events list ', events_path %></br>
+<%= link_to 'User Owe Details ', user_owe_details_path %></br>
+<%= link_to 'User Event Details list ', user_event_details_path %>
+
+<h1>User Owe Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Collect User Name</th>
+      <th>Owe User Name</th>
+      <th>Owe amount</th>
+      <th>Paid amount</th>
+      <th>Status</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_owe_details.each do |user_owe_detail| %>
+      <tr>
+        <td><%= user_owe_detail.user.first_name %></td>
+        <td><%= user_owe_detail.owe_user.first_name %></td>
+        <td><%= user_owe_detail.owe_amount %></td>
+        <td><%= user_owe_detail.paid_amount %></td>
+        <td><%= user_owe_detail.status %></td>
+        <!-- <td><%#= link_to 'Show', user_owe_detail %></td>
+        <td><%#= link_to 'Edit', edit_user_owe_detail_path(user_owe_detail) %></td>
+        <td><%#= link_to 'Destroy', user_owe_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New User Owe Detail', new_user_owe_detail_path %>

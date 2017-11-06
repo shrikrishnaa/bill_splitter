@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owe amount:</strong>
+  <%= @user_owe_detail.owe_amount %>
+</p>
+
+<p>
+  <strong>Paid amount:</strong>
+  <%= @user_owe_detail.paid_amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user_owe_detail.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_owe_detail.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_owe_detail_path(@user_owe_detail) %> |
+<%= link_to 'Back', user_owe_details_path %>

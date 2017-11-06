@@ -1,0 +1,4 @@
+<h3>Bill Splitter</h3>
+<%if current_user.present? %>
+  <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "pull-right" %>
+<%end%>

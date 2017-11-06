@@ -1,0 +1,64 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :event_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :event_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :event_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :event_amount %>
+  </div>
+
+  Friends Present In The Event</br></br>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Paid for an Event</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% User.all.each do |user| %>
+    <tr>
+      <td>
+        <%= form.check_box :user_ids,{ :multiple => true }, user.id, nil %>
+      </td>
+      <td>
+        <%=  user.first_name%>
+      </td>
+      <td>
+        <%= form.text_field "paid_amount_#{user.id}",
+        value: get_user_event_paid_amount(user,@event)%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</br></br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
